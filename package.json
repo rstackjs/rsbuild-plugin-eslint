@@ -33,7 +33,7 @@
 		]
 	},
 	"dependencies": {
-		"eslint-rspack-plugin": "^4.3.0"
+		"eslint-rspack-plugin": "^4.4.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -41,7 +41,7 @@
 		"@rsbuild/core": "^1.7.2",
 		"@rslib/core": "^0.19.4",
 		"@types/node": "^24.10.9",
-		"eslint": "^9.39.2",
+		"eslint": "^10.0.2",
 		"nano-staged": "^0.9.0",
 		"playwright": "^1.58.1",
 		"simple-git-hooks": "^2.13.1",
@@ -49,7 +49,7 @@
 	},
 	"peerDependencies": {
 		"@rsbuild/core": "^1.0.0 || ^2.0.0-0",
-		"eslint": "^8.0.0 || ^9.0.0"
+		"eslint": "^8.0.0 || ^9.0.0 || ^10.0.0"
 	},
 	"peerDependenciesMeta": {
 		"@rsbuild/core": {
