@@ -1,13 +1,12 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
     "config:base",
     "schedule:monthly",
     "group:allNonMajor",
-    ":automergeStableNonMajor"
+    ":automergeStableNonMajor",
   ],
-  "rangeStrategy": "bump",
-  "packageRules": [
-    { "depTypeList": ["peerDependencies"], "enabled": false }
-  ]
+  automergeSchedule: ["at any time"],
+  rangeStrategy: "bump",
+  packageRules: [{ depTypeList: ["peerDependencies"], enabled: false }],
 }
