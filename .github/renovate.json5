@@ -1,9 +1,0 @@
-{
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["config:base", "schedule:monthly", "group:allNonMajor"],
-  rangeStrategy: "bump",
-  packageRules: [
-    { matchUpdateTypes: ["minor", "patch"], automerge: true },
-    { depTypeList: ["peerDependencies"], enabled: false },
-  ],
-}
