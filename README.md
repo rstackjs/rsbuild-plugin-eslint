@@ -28,7 +28,7 @@ Add plugin to your `rsbuild.config.ts`:
 
 ```ts
 // rsbuild.config.ts
-import { pluginEslint } from "@rsbuild/plugin-eslint";
+import { pluginEslint } from '@rsbuild/plugin-eslint';
 
 export default {
   plugins: [pluginEslint()],
@@ -62,7 +62,7 @@ Enable ESLint checking only during production builds:
 
 ```js
 pluginEslint({
-  enable: process.env.NODE_ENV === "production",
+  enable: process.env.NODE_ENV === 'production',
 });
 ```
 
@@ -70,7 +70,7 @@ Enable ESLint checking only during development builds:
 
 ```js
 pluginEslint({
-  enable: process.env.NODE_ENV === "development",
+  enable: process.env.NODE_ENV === 'development',
 });
 ```
 
@@ -86,7 +86,7 @@ By default, ESLint only runs on the first environment to avoid running multiple 
 
 ```js
 pluginEslint({
-  environments: false // (default)
+  environments: false, // (default)
 });
 ```
 
@@ -119,10 +119,10 @@ To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-
 
 ```ts
 const defaultOptions = {
-  extensions: ["js", "jsx", "mjs", "cjs", "ts", "tsx", "mts", "cts"],
+  extensions: ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts'],
   exclude: [
-    "node_modules",
-    "dist", // -> rsbuildConfig.output.distPath.root
+    'node_modules',
+    'dist', // -> rsbuildConfig.output.distPath.root
   ],
 };
 ```
@@ -135,7 +135,7 @@ The `eslintPluginOptions` object will be shallowly merged with the default confi
 pluginEslint({
   eslintPluginOptions: {
     cwd: __dirname,
-    configType: "flat",
+    configType: 'flat',
   },
 });
 ```
@@ -145,7 +145,7 @@ pluginEslint({
 ```ts
 pluginEslint({
   eslintPluginOptions: {
-    exclude: ["node_modules", "dist", "./src/foo.js"],
+    exclude: ['node_modules', 'dist', './src/foo.js'],
   },
 });
 ```
@@ -155,7 +155,7 @@ pluginEslint({
 ```ts
 pluginEslint({
   eslintPluginOptions: {
-    extensions: ["js", "jsx", "mjs", "cjs", "ts", "tsx", "mts", "cts", "vue"],
+    extensions: ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts', 'vue'],
   },
 });
 ```
