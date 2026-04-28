@@ -11,26 +11,26 @@ const require = createRequire(import.meta.url);
 const eslintPath = require.resolve('eslint');
 
 test('should throw error when exist ESLint errors', async () => {
-	const { logs, restore } = proxyConsole();
+  const { logs, restore } = proxyConsole();
 
-	const rsbuild = await createRsbuild({
-		cwd: __dirname,
-		rsbuildConfig: {
-			plugins: [
-				pluginEslint({
-					eslintPluginOptions: {
-						cwd: __dirname,
-						eslintPath,
-					},
-				}),
-			],
-		},
-	});
-	await expect(rsbuild.build()).rejects.toThrowError('build failed');
+  const rsbuild = await createRsbuild({
+    cwd: __dirname,
+    rsbuildConfig: {
+      plugins: [
+        pluginEslint({
+          eslintPluginOptions: {
+            cwd: __dirname,
+            eslintPath,
+          },
+        }),
+      ],
+    },
+  });
+  await expect(rsbuild.build()).rejects.toThrowError('build failed');
 
-	expect(
-		logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
-	).toBeTruthy();
+  expect(
+    logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
+  ).toBeTruthy();
 
-	restore();
+  restore();
 });

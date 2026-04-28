@@ -11,60 +11,60 @@ const require = createRequire(import.meta.url);
 const eslintPath = require.resolve('eslint');
 
 test('should throw error when exist ESLint errors', async () => {
-	const { logs, restore } = proxyConsole();
+  const { logs, restore } = proxyConsole();
 
-	const rsbuild = await createRsbuild({
-		cwd: __dirname,
-		rsbuildConfig: {
-			plugins: [
-				pluginEslint({
-					eslintPluginOptions: {
-						eslintPath,
-					},
-				}),
-			],
-		},
-	});
-	await expect(rsbuild.build()).rejects.toThrowError('build failed');
+  const rsbuild = await createRsbuild({
+    cwd: __dirname,
+    rsbuildConfig: {
+      plugins: [
+        pluginEslint({
+          eslintPluginOptions: {
+            eslintPath,
+          },
+        }),
+      ],
+    },
+  });
+  await expect(rsbuild.build()).rejects.toThrowError('build failed');
 
-	expect(
-		logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
-	).toBeTruthy();
+  expect(
+    logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
+  ).toBeTruthy();
 
-	restore();
+  restore();
 });
 
 test('should not throw error when the file is excluded', async () => {
-	const rsbuild = await createRsbuild({
-		cwd: __dirname,
-		rsbuildConfig: {
-			plugins: [
-				pluginEslint({
-					eslintPluginOptions: {
-						eslintPath,
-						exclude: ['node_modules', './src/index.js'],
-					},
-				}),
-			],
-		},
-	});
-	await expect(rsbuild.build()).resolves.toBeTruthy();
+  const rsbuild = await createRsbuild({
+    cwd: __dirname,
+    rsbuildConfig: {
+      plugins: [
+        pluginEslint({
+          eslintPluginOptions: {
+            eslintPath,
+            exclude: ['node_modules', './src/index.js'],
+          },
+        }),
+      ],
+    },
+  });
+  await expect(rsbuild.build()).resolves.toBeTruthy();
 });
 
 test('should not throw error when the ESLint plugin is not enabled', async () => {
-	const rsbuild = await createRsbuild({
-		cwd: __dirname,
-		rsbuildConfig: {
-			plugins: [
-				pluginEslint({
-					enable: false,
-					eslintPluginOptions: {
-						eslintPath,
-					},
-				}),
-			],
-		},
-	});
+  const rsbuild = await createRsbuild({
+    cwd: __dirname,
+    rsbuildConfig: {
+      plugins: [
+        pluginEslint({
+          enable: false,
+          eslintPluginOptions: {
+            eslintPath,
+          },
+        }),
+      ],
+    },
+  });
 
-	await expect(rsbuild.build()).resolves.toBeTruthy();
+  await expect(rsbuild.build()).resolves.toBeTruthy();
 });
