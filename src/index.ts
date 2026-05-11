@@ -59,9 +59,7 @@ export const pluginEslint = (
         return;
       }
 
-      const ESLintPluginModule = await import('eslint-rspack-plugin');
-      // Fix ESM-CJS interop issue
-      const ESLintPlugin = ESLintPluginModule.default || ESLintPluginModule;
+      const { default: ESLintPlugin } = await import('eslint-rspack-plugin');
 
       const defaultOptions = {
         extensions: ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts'],

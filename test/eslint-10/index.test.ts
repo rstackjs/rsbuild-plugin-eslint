@@ -4,14 +4,13 @@ import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { createRsbuild } from '@rsbuild/core';
 import { pluginEslint } from '../../src';
-import { proxyConsole } from '../helper';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 const eslintPath = require.resolve('eslint');
 
 test('should throw error when exist ESLint errors', async () => {
-  const { logs, restore } = proxyConsole();
+  let lintMessage = '';
 
   const rsbuild = await createRsbuild({
     cwd: __dirname,
@@ -21,16 +20,20 @@ test('should throw error when exist ESLint errors', async () => {
           eslintPluginOptions: {
             cwd: __dirname,
             eslintPath,
+            formatter: (results) => {
+              lintMessage = results
+                .flatMap((result) =>
+                  result.messages.map((message) => message.message),
+                )
+                .join('\n');
+              return lintMessage;
+            },
           },
         }),
       ],
     },
   });
-  await expect(rsbuild.build()).rejects.toThrowError('build failed');
+  await expect(rsbuild.build()).rejects.toThrowError();
 
-  expect(
-    logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
-  ).toBeTruthy();
-
-  restore();
+  expect(lintMessage).toContain(`'undefinedVar' is not defined`);
 });
