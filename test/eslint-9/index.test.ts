@@ -19,6 +19,8 @@ test('should throw error when exist ESLint errors', async () => {
       plugins: [
         pluginEslint({
           eslintPluginOptions: {
+            configType: 'eslintrc',
+            cwd: __dirname,
             eslintPath,
           },
         }),
@@ -41,6 +43,8 @@ test('should not throw error when the file is excluded', async () => {
       plugins: [
         pluginEslint({
           eslintPluginOptions: {
+            configType: 'eslintrc',
+            cwd: __dirname,
             eslintPath,
             exclude: ['node_modules', './src/index.js'],
           },
@@ -59,6 +63,8 @@ test('should not throw error when the ESLint plugin is not enabled', async () =>
         pluginEslint({
           enable: false,
           eslintPluginOptions: {
+            configType: 'eslintrc',
+            cwd: __dirname,
             eslintPath,
           },
         }),
