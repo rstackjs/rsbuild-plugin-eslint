@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       eslint-rspack-plugin:
-        specifier: 5.0.0-beta.0
-        version: 5.0.0-beta.0(@rspack/core@2.0.2(@swc/helpers@0.5.21))(eslint@10.3.0(jiti@2.6.1))
+        specifier: 5.0.0-beta.1
+        version: 5.0.0-beta.1(@rspack/core@2.0.2(@swc/helpers@0.5.21))(eslint@10.3.0(jiti@2.6.1))
     devDependencies:
       '@playwright/test':
         specifier: ^1.59.1
@@ -469,8 +469,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-rspack-plugin@5.0.0-beta.0:
-    resolution: {integrity: sha512-mJmmulcTbpoKNlgTL0tx/oaTptF9/Ol65tndPRB59iqUvCRzYICvdXl9fKeEwBrLqdgP0Ys6yiEI21xrdltw/g==}
+  eslint-rspack-plugin@5.0.0-beta.1:
+    resolution: {integrity: sha512-9ZJTnkN4T4ORRvQN27oTp6TI8PqpA1zzQNwK/+JJsykJVPCtxq/SYmwqztgIAcUP1++5jye7wO4tATj3qlVBcQ==}
     engines: {node: '>= 20.19.0'}
     peerDependencies:
       '@rspack/core': ^1.0.8 || ^2.0.0
@@ -1208,7 +1208,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-rspack-plugin@5.0.0-beta.0(@rspack/core@2.0.2(@swc/helpers@0.5.21))(eslint@10.3.0(jiti@2.6.1)):
+  eslint-rspack-plugin@5.0.0-beta.1(@rspack/core@2.0.2(@swc/helpers@0.5.21))(eslint@10.3.0(jiti@2.6.1)):
     dependencies:
       eslint: 10.3.0(jiti@2.6.1)
       micromatch: 4.0.8
