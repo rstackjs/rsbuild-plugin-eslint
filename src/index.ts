@@ -1,6 +1,8 @@
 import path from 'node:path';
 import type { RsbuildPlugin } from '@rsbuild/core';
-import type { Options } from 'eslint-rspack-plugin';
+import type ESLintPlugin from 'eslint-rspack-plugin';
+
+type ESLintPluginOptions = ConstructorParameters<typeof ESLintPlugin>[0];
 
 export type PluginEslintOptions = {
   /**
@@ -12,7 +14,7 @@ export type PluginEslintOptions = {
    * To modify the options of `eslint-rspack-plugin`.
    * @see https://github.com/rstackjs/eslint-rspack-plugin
    */
-  eslintPluginOptions?: Options;
+  eslintPluginOptions?: ESLintPluginOptions;
   /**
    * Control which environments to run ESLint on.
    * - `false` or `undefined`: Only run on the first environment (default)

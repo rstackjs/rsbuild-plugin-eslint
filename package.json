@@ -30,7 +30,7 @@
     "pre-commit": "pnpm run lint:write"
   },
   "dependencies": {
-    "eslint-rspack-plugin": "5.0.0-beta.1"
+    "eslint-rspack-plugin": "5.0.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
