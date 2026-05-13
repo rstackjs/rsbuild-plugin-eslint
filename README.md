@@ -18,6 +18,11 @@ The plugin has integrated [eslint-rspack-plugin](https://www.npmjs.com/package/e
 
 ## Usage
 
+Requirements:
+
+- Node.js >= 20.19.0
+- ESLint >= 9
+
 Install:
 
 ```bash
@@ -114,7 +119,7 @@ This is useful when different environments have different entry points and you w
 
 To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/rstackjs/eslint-rspack-plugin#readme) to learn about available options.
 
-- **Type:** [Options](https://github.com/rstackjs/eslint-rspack-plugin/blob/master/types/options.d.ts)
+- **Type:** [Options](https://github.com/rstackjs/eslint-rspack-plugin#options)
 - **Default:**
 
 ```ts
@@ -129,13 +134,13 @@ const defaultOptions = {
 
 The `eslintPluginOptions` object will be shallowly merged with the default configuration object.
 
-- For example, enable ESLint's flat config:
+- `eslint-rspack-plugin` v5 uses flat config by default. For legacy `.eslintrc` config, set `configType: 'eslintrc'`:
 
 ```ts
 pluginEslint({
   eslintPluginOptions: {
     cwd: __dirname,
-    configType: 'flat',
+    configType: 'eslintrc',
   },
 });
 ```
