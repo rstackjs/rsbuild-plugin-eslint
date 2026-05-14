@@ -18,15 +18,17 @@ The plugin has integrated [eslint-rspack-plugin](https://www.npmjs.com/package/e
 
 ## Usage
 
-Requirements:
-
-- Node.js >= 20.19.0
-- ESLint >= 9
-
 Install:
 
 ```bash
 npm add @rsbuild/plugin-eslint -D
+```
+
+The latest version of this plugin only supports ESLint >= 9.0 and Node.js 20+.
+If you need to use ESLint v8 or Node.js 18, install the `1.x` version instead:
+
+```bash
+npm add @rsbuild/plugin-eslint@1 -D
 ```
 
 Add plugin to your `rsbuild.config.ts`:
