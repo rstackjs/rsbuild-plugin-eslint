@@ -1,3 +1,7 @@
 packages:
   - playground
   - test/**
+
+allowBuilds:
+  core-js: false
+  simple-git-hooks: false
