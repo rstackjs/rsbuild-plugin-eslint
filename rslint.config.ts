@@ -15,10 +15,4 @@ export default defineConfig([
       globals: globals.rstest,
     },
   },
-  {
-    files: ['test/**/src/index.js'],
-    rules: {
-      'no-undef': 'off',
-    },
-  },
 ]);
